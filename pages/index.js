@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {binance} from 'ccxt';
+import { binance } from 'ccxt';
 let binancee = new binance()
 
 export default function Home({ price }) {
@@ -9,13 +9,21 @@ export default function Home({ price }) {
   const [totalStake, setTotalStake] = useState(0);
 
 
-  const [usdEur, setUsdEur] = useState(price);
+  const [usdEur, setUsdEur] = useState(0);
+
 
   useEffect(() => {
     if (odd1 > 0 && odd2 > 0) {
       setArbPer(calArbPer(odd1, odd2))
     }
-  }, [odd1, odd2, totalStake]);
+    if (usdEur == 0) {
+      (async () => {
+        let { ask } = await binancee.fetchTicker('EUR/USDT')
+        setUsdEur(Number((ask + 0.001).toFixed(4)))
+        console.log("got price", ask)
+      })()
+    }
+  }, [odd1, odd2, totalStake, usdEur]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -35,7 +43,10 @@ export default function Home({ price }) {
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-700">
       <div className="h-1/2 sm:h-1/3 grid grid-cols-4 gap-3 p-5 rounded-lg bg-gray-600">
-        <div className="w-full h-full flex flex-col justify-center text-center font-normal text-xs text-gray-200">apple#3333</div>
+        <div className="w-full h-full flex flex-col justify-center text-center font-normal text-xs text-gray-200">
+          <div>apple#3333</div>
+          <div>{usdEur}</div>
+        </div>
         <div className="w-full h-full flex flex-col justify-center text-center font-bold text-xl text-gray-200">Stake</div>
         <div className="w-full h-full flex flex-col justify-center text-center font-bold text-xl text-gray-200">USD</div>
         <div className="w-full h-full flex flex-col justify-center text-center font-bold text-xl text-gray-200">EUR</div>
@@ -117,5 +128,5 @@ function calArbPer(firstOdd, secondOdd) {
 export async function getServerSideProps(ctx) {
   let { ask } = await binancee.fetchTicker('EUR/USDT')
 
-  return { props: { price:  Number((ask+ 0.001).toFixed(4)) } }
+  return { props: { price: "data" } }
 }
