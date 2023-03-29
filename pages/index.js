@@ -82,25 +82,25 @@ export default function Home() {
         <div className="w-full h-full text-center flex flex-col justify-center text-gray-300">
           <div>
             Payout:&nbsp;
-            <span className={`font-bold ${arbPer.total > 100 ? "text-red-400" : "text-green-400"}`}>
+            <div className={`font-bold ${arbPer.total > 100 ? "text-red-400" : "text-green-400"}`}>
               {((totalStake / (arbPer.total / 100)) || 0).toFixed(2)}
-            </span>
+            </div>
           </div>
         </div>
         <div className="w-full h-full text-center flex flex-col justify-center text-gray-300">
           <div>
             Profit:&nbsp;
-            <span className={`font-bold ${arbPer.total > 100 ? "text-red-400" : "text-green-400"}`}>
+            <div className={`font-bold ${arbPer.total > 100 ? "text-red-400" : "text-green-400"}`}>
               {((totalStake / (arbPer.total / 100)) - totalStake || 0).toFixed(2)}
-            </span>
+            </div>
           </div>
         </div>
         <div className="w-full h-full text-center flex flex-col justify-center text-gray-300">
           <div>
             ROI:&nbsp;
-            <span className={`font-bold ${arbPer.total > 100 ? "text-red-400" : "text-green-400"}`}>
+            <div className={`font-bold ${arbPer.total > 100 ? "text-red-400" : "text-green-400"}`}>
               {((totalStake / (arbPer.total / 100) * 100) / totalStake - 100 || 0).toFixed(2)}%
-            </span>
+            </div>
           </div>
         </div>
       </div>
