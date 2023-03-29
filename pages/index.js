@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { binance } from 'ccxt';
 let binancee = new binance()
 
-export default function Home({ price }) {
+export default function Home() {
   const [odd1, setOdd1] = useState(0);
   const [odd2, setOdd2] = useState(0);
   const [arbPer, setArbPer] = useState(0);
@@ -122,11 +122,4 @@ function calArbPer(firstOdd, secondOdd) {
     "secondOddPer": ((1 / secondOdd) * 100).toFixed(6),
     "total": ((1 / firstOdd) * 100 + (1 / secondOdd) * 100).toFixed(6)
   }
-}
-
-
-export async function getServerSideProps(ctx) {
-  let { ask } = await binancee.fetchTicker('EUR/USDT')
-
-  return { props: { price: "data" } }
 }
