@@ -42,8 +42,7 @@ export default function _3Way() {
         navigator.clipboard.writeText(innerHTML)
       }
     return (
-        <>
-            <div className="h-1/2 sm:h-1/3 grid grid-cols-4 gap-3 p-5 rounded-lg bg-gray-600">
+            <div className="h-96 grid grid-cols-4 gap-3 p-5 rounded-lg bg-gray-600">
                 <div className="w-full h-full flex flex-col justify-center text-center font-normal text-xs text-gray-200">
                     <div>apple#3333</div>
                     <div>{usdEur}</div>
@@ -116,7 +115,6 @@ export default function _3Way() {
                     </div>
                 </div>
             </div>
-        </>
     )
 }
 

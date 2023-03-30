@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-700">
-      <div className='bg-gray-600 rounded-lg'>
+      {/* <div className='bg-gray-600 rounded-lg'> */}
         {/* <div className='h-10 sm:h-10 w-full flex justify-around align-middle rounded-lg bg-gray-400'>
           <div onClick={e => setActive(1)} className={`${active == 1 ? "bg-gray-600 rounded-tr-lg" : ""} w-full bg-gray-400 text-center h-full rounded-tl-lg flex flex-col justify-center`}>2way</div>
           <div onClick={e => setActive(2)} className={`${active == 2 ? "bg-gray-600 rounded-tl-lg rounded-tr-lg" : ""} w-full bg-gray-400 text-center h-full flex flex-col justify-center`}>3way</div>
@@ -33,7 +33,7 @@ export default function Home() {
         <_2Way />
         {/* {active == 2 && <_3Way price={usdEur} />} */}
 
-      </div>
+      {/* </div> */}
     </div>
   )
 }
