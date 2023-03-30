@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { binance } from 'ccxt';
-let binancee = new binance()
+// import { binance } from 'ccxt';
+// let binancee = new binance()
 // import _2Way from "../components/2way.js"
 import _3Way from "../components/3way.js"
 
@@ -24,7 +24,7 @@ export default function Home() {
 
         </div> */}
         {/* {active == 1 && <_2Way price={usdEur} />} */}
-        <_3Way price={usdEur} />
+        <_3Way />
 
       </div>
     </div>

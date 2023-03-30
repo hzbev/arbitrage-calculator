@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { binance } from 'ccxt';
 let binancee = new binance()
 
-export default function _2Way({ price }) {
+export default function _2Way() {
     const [odd1, setOdd1] = useState(0);
     const [odd2, setOdd2] = useState(0);
     const [usdEur, setUsdEur] = useState(0);
@@ -56,8 +56,8 @@ export default function _2Way({ price }) {
                     />
                 </div>
                 <div className="bg-gray-500 flex flex-col w-full h-full text-center justify-center text-gray-300 font-semibold" onClick={copyVal}>{(calStakes(totalStake, arbPer.firstOddPer, arbPer.total) || 0).toFixed(2)}</div>
-                <div className="bg-gray-500 flex flex-col w-full h-full text-center justify-center text-gray-300 font-semibold" onClick={copyVal}>{(calStakes(totalStake, arbPer.firstOddPer, arbPer.total) * price || 0).toFixed(2)}</div>
-                <div className="bg-gray-500 flex flex-col w-full h-full text-center justify-center text-gray-300 font-semibold" onClick={copyVal}>{(calStakes(totalStake, arbPer.firstOddPer, arbPer.total) / price || 0).toFixed(2)}</div>
+                <div className="bg-gray-500 flex flex-col w-full h-full text-center justify-center text-gray-300 font-semibold" onClick={copyVal}>{(calStakes(totalStake, arbPer.firstOddPer, arbPer.total) * usdEur || 0).toFixed(2)}</div>
+                <div className="bg-gray-500 flex flex-col w-full h-full text-center justify-center text-gray-300 font-semibold" onClick={copyVal}>{(calStakes(totalStake, arbPer.firstOddPer, arbPer.total) / usdEur || 0).toFixed(2)}</div>
                 <div className="w-full h-full">
                     <input className='bg-gray-400 text-center w-full h-full placeholder-gray-700 font-medium'
                         type="number"
@@ -67,8 +67,8 @@ export default function _2Way({ price }) {
                     />
                 </div>
                 <div className="bg-gray-500 flex flex-col w-full h-full text-center justify-center text-gray-300 font-semibold" onClick={copyVal}>{(calStakes(totalStake, arbPer.secondOddPer, arbPer.total) || 0).toFixed(2)}</div>
-                <div className="bg-gray-500 flex flex-col w-full h-full text-center justify-center text-gray-300 font-semibold" onClick={copyVal}>{(calStakes(totalStake, arbPer.secondOddPer, arbPer.total) * price || 0).toFixed(2)}</div>
-                <div className="bg-gray-500 flex flex-col w-full h-full text-center justify-center text-gray-300 font-semibold" onClick={copyVal}>{(calStakes(totalStake, arbPer.secondOddPer, arbPer.total) / price || 0).toFixed(2)}</div>
+                <div className="bg-gray-500 flex flex-col w-full h-full text-center justify-center text-gray-300 font-semibold" onClick={copyVal}>{(calStakes(totalStake, arbPer.secondOddPer, arbPer.total) * usdEur || 0).toFixed(2)}</div>
+                <div className="bg-gray-500 flex flex-col w-full h-full text-center justify-center text-gray-300 font-semibold" onClick={copyVal}>{(calStakes(totalStake, arbPer.secondOddPer, arbPer.total) / usdEur || 0).toFixed(2)}</div>
                 <div className="w-full h-full text-center">
                     <input className='bg-gray-400 text-center w-full h-full placeholder-gray-700 font-medium'
                         type="number"
