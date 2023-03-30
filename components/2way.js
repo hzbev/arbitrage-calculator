@@ -42,7 +42,7 @@ export default function _2Way() {
             <div className="h-1/2 sm:h-1/3 grid grid-cols-4 gap-3 p-5 rounded-lg bg-gray-600">
                 <div className="w-full h-full flex flex-col justify-center text-center font-normal text-xs text-gray-200">
                     <div>apple#3333</div>
-                    <div>{price}</div>
+                    <div>{usdEur}</div>
                 </div>
                 <div className="w-full h-full flex flex-col justify-center text-center font-bold text-xl text-gray-200">Stake</div>
                 <div className="w-full h-full flex flex-col justify-center text-center font-bold text-xl text-gray-200">USD</div>
