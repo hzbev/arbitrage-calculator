@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
+import { binance } from 'ccxt';
+let binancee = new binance()
 
 export default function _2Way({ price }) {
     const [odd1, setOdd1] = useState(0);
     const [odd2, setOdd2] = useState(0);
+    const [usdEur, setUsdEur] = useState(0);
   
     const [arbPer, setArbPer] = useState(0);
     const [totalStake, setTotalStake] = useState(0);
@@ -12,7 +14,14 @@ export default function _2Way({ price }) {
         if (odd1 > 0 && odd2 > 0) {
           setArbPer(calArbPer(odd1, odd2))
         }
-      }, [odd1, odd2, totalStake]);
+        if (usdEur == 0) {
+            (async () => {
+              let { ask } = await binancee.fetchTicker('EUR/USDT')
+              setUsdEur(Number((ask + 0.001).toFixed(4)))
+              console.log("got price", ask)
+            })()
+          }
+      }, [odd1, odd2, totalStake, usdEur]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
